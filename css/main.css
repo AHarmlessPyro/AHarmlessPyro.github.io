@@ -62,7 +62,7 @@ ul.posts li {
 }
 
 #section0{
-	background-image: url(../images/bg1.jpeg);
+	background-image: url(../images/bg1.jpg);
 	background-size:cover
 }
 #section0 h1{
@@ -71,12 +71,12 @@ ul.posts li {
 	position: relative;
 }
 #section2{
-	background-image: url(../images/bg3.jpeg);
+	background-image: url(../images/bg3.jpg);
 	padding: 6% 0 0 0;
 	background-size:cover
 }
 #section1{
-	background-image: url(../images/bg2.jpeg);
+	background-image: url(../images/bg2.jpg);
 	padding: 6% 0 0 0;
 	background-size:cover
 }
