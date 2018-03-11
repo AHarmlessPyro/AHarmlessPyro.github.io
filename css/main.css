@@ -2,9 +2,9 @@
 * Taken from a guide for gitub pages by James McGlone
 * http://jmcglone.com/guides/github-pages/
 */
-body {
-    margin: 60px auto;
-    width: 70%;
+body, html {
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -28,9 +28,10 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
+	padding-top: 30px;
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #333;
+    color: #fff;
 }
 footer {
     border-top: 1px solid #d5d5d5;
@@ -45,3 +46,65 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+.caption{
+	left: 0;
+	top: 50%;
+	width: 100%;
+	color: #000;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+  opacity: 0.5;
+}
+
+#section0{
+	background-image: url(../images/bg1.jpeg);
+	background-size:cover
+}
+#section0 h1{
+	top: 50%;
+	transform: translateY(-50%);
+	position: relative;
+}
+#section2{
+	background-image: url(../images/bg3.jpeg);
+	padding: 6% 0 0 0;
+	background-size:cover
+}
+#section1{
+	background-image: url(../images/bg2.jpeg);
+	padding: 6% 0 0 0;
+	background-size:cover
+}
+#section3 h1{
+	color: #000;
+}
+#aboutid{
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	color: #aaa;
+}
+
+#aboutlist{
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	color: #aaa;
+	text-align:left;
+}
+#mentions{
+	color:#1c1d16;
+}
+#captionExp{
+	position: relative;
+	left: 5%;
+	top:-40%;
+	color: #aaa;
+	text-align:left;
+}
+

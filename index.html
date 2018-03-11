@@ -1,34 +1,110 @@
 <!DOCTYPE html>
-<!--document adapted from a guide by Jonathan McGlone : http://jmcglone.com/guides/github-pages/-->
-<html>
-	<head>
-		<title>Ninad Sinha -- just a student ... for now</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!-- embed scripts here -->
-		<script src="js/main.js"></script> 
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Ninad Sinha!</h1>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:ninadsinhaagmail.com">email</a></li>
-        		<li><a href="https://github.com/AHarmlessPyro">github.com/AHarmlessPyro</a></li>
-			</ul>
-		</footer>
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Continuous scrolling - fullPage.js</title>
+	<meta name="author" content="Matthew Howell" />
+	<meta name="description" content="fullPage continuous scrolling demo." />
+	<meta name="keywords"  content="fullpage,jquery,demo,scroll,loop,continuous" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="vendors/scrolloverflow.js"></script>
+
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/examples.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+			  sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'grey', '#ccddff'],
+			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
+			  menu: '#menu',
+			  fadingeffects: true,
+			  fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
+			  continuousVertical: true
+			});
+		});
+	</script>
+
+</head>
+<body>
+<ul id="menu">
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Some info</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Experience and education</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">More info?</a></li>
+	<li data-menuanchor="4thPage"><a href="#4thPage">About</a></li>
+</ul>
+
+<div id="fullpage">
+	<div class="section" id="section0">
+		<div class = "bgimg-1">
+			<div class = "caption">
+				<span class="border">Hi There! I'm Ninad.</span>
+				<br>
+				<br>
+				<p>I'm currently a student at University of Minnesota, Twin Cities</p>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section1">
+		<div class = "bgimg-2">
+			<div class="slide" id = "slide1">
+				<div class = "caption" id = "captionExp">
+					<span class="border">Education</span>
+					<br>
+					<br>
+					<p>Have to put in education here</p>
+				</div>
+			</div>
+			<div class="slide" id = "slide2">
+			<div class = "caption" id = "captionExp">
+					<span class="border">Experience</span>
+					<br>
+					<br>
+					<p>Have to put in experience here</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section2">
+		<div class = "bgimg-1">
+			<div class="intro">
+				<div class = "caption">
+					<span class="border">Scroll Down</span>
+					<br>
+					<br>
+					<p>And it will animate down to the first section</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<div class = "bgimg-1">
+			<div class="intro">
+				<div class = "caption">
+					<span class="border" id = "aboutid">About</span>
+					<ul id = "aboutlist">
+					<li>The theme itself was taken from <a href = "https://alvarotrigo.com/" target="_blank" id = "mentions"> alvaro trigo</a>. The current design was, however, done by me.
+					<li>The general idea and methods for making a github page was taken from <a href = "http://jmcglone.com/guides/github-pages/" target="_blank" id = "mentions"> James McGlone</a>
+					</ul>				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
 </html>
