@@ -55,12 +55,11 @@ ul.posts li {
 .caption span.border {
   background-color: #111;
   color: #fff;
-  padding: 18px;
+  padding: 1%;
   font-size: 25px;
   letter-spacing: 10px;
   opacity: 0.5;
 }
-
 #section0{
 	background-image: url(../images/bg1.jpg);
 	background-size:cover
@@ -76,7 +75,7 @@ ul.posts li {
 	background-size:cover
 }
 #section1{
-	background-image: url(../images/bg2.jpg);
+	background-image: url(../images/bg4.jpg);
 	padding: 6% 0 0 0;
 	background-size:cover
 }
@@ -93,7 +92,7 @@ ul.posts li {
 #aboutlist{
 	position: absolute;
 	left: 10%;
-	top: 20%;
+	top: 21%;
 	color: #aaa;
 	text-align:left;
 }
@@ -103,8 +102,18 @@ ul.posts li {
 #captionExp{
 	position: relative;
 	left: 5%;
-	top:-40%;
+	top: -30%;
+    padding-top: 100px;
 	color: #aaa;
 	text-align:left;
 }
-
+#btnImg{
+	background-color: Transparent;
+	border: none;
+	height:32px;
+	width:32px;
+}
+img{
+	height:32px;
+	width:32px;	
+}
