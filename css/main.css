@@ -113,7 +113,29 @@ ul.posts li {
 	height:32px;
 	width:32px;
 }
+#btnSubmit{
+	background-color: transparent;
+	color: white;
+	border: none;
+	height:32px;
+	width:32px;
+}
 img{
 	height:32px;
 	width:32px;	
+}
+#txtForm{
+	background-color:transparent;
+	color:white;
+	width: 40%;
+	resize: none;
+	border:none;
+	overflow:auto;
+}
+::placeholder { /* Most modern browsers support this now. */
+   color:white;
+}
+textarea{
+	height: 80px;
+	
 }
