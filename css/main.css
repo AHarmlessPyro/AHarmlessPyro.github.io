@@ -70,14 +70,13 @@ ul.posts li {
 	position: relative;
 }
 #section2{
-	background-image: url(../images/bg4.jpg);
+	background-image: url(../images/bg3.jpg);
 	padding: 6% 0 0 0;
 	background-size:cover
 }
 #section1{
-	background-image: url(../images/bg3.jpg);
+	background-image: url(../images/bg4.jpg);
 	padding: 6% 0 0 0;
-	opacity: 0.95;
 	background-size:cover
 }
 #section3 h1{
