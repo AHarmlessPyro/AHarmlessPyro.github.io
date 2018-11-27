@@ -33,7 +33,8 @@
 			  menu: '#menu',
 			  fadingeffects: true,
 			  fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
-			  continuousVertical: true
+			  continuousVertical: false,
+			  scrollHorizontally: true
 			});
 		});
 	</script>
@@ -42,7 +43,8 @@
 <body>
 <ul id="menu">
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Some info</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Experience and education</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Education</a></li>
+	<li data-menuanchor="experience"><a href="#secondPage/1">Experience</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">More info?</a></li>
 	<li data-menuanchor="4thPage"><a href="#4thPage">About</a></li>
 </ul>
@@ -59,7 +61,7 @@
 		</div>
 	</div>
 	<div class="section" id="section1">
-		<div class = "bgimg-2">
+		<div class = "bgimg-1">
 			<div class="slide" id = "slide1">
 				<div class = "caption" id = "captionExp">
 					<span class="border" id = "eduTag">Education</span>
@@ -68,7 +70,7 @@
 					<p>University of Minnesota,Twin Cities
 					<ul>
 					<li> Bachelors of science in Computer Science</li>
-					<li> GPA: 3.69/4</li>
+					<li> GPA: 3.66/4</li>
 					<li> Expected Graduation: May 2020</li>
 					</ul>
 					<br>
@@ -81,15 +83,37 @@
 				</div>
 			</div>
 			<div class="slide" id = "slide2">
+				<div class = "caption" id = "captionExp">
+						<span class="border">Experience</span>
+						<br>
+						<br>
+						<p>Interactive Visualisation Lab, University of Minnesota, Minneapolis</p>
+						<ul>
+						<li>May 2018 - Oct 2018</li>
+						<li>Continue development of pre-existing software for USFS for visualization of woodlands in the United States</li>
+						<li>Add a component to the software which implement an abstract visualization of the pre-existing data.</li>
+						<li>Create and test 3D models and terrains components that are suitable in a VR environment.</li>
+						</ul>
+						<br>
+						<br>
+						<p>Student Developer,Senior Software Project, University of Minnesota/Medtronics</p>
+						<ul>					
+						<li>Sept 2018 – Present</li>
+						<li>Work with Medtronics personnel to design software to increase collaborative design through node and relation based interactive graphs.</li>
+						<li>Work specifically on front-end technologies including Cytoscape and Websockets</li>
+						</ul>
+					</div>
+				</div>
+			<div class="slide" id = "slide3">
 			<div class = "caption" id = "captionExp">
-					<span class="border">Experience</span>
+					<span class="border">Experience Contd.</span>
 					<br>
 					<br>
 					<p>Internship at Jharkhand Agency for Promotion of Information Technology, India</p>
 					<ul>
 					<li>Summer 2017</li>
 					<li>Development of prototype for mobile app meant to connect village level e-Service center inspectors to state level administration.</li>
-					<li>Set up application prototype using Apache Cordova and a backend C# server</li>
+					<li>Set up application prototype using Apache Cordova and a backend .net server</li>
 					<li>Functioned as essential communication point between the senior developer and product team.</li>
 					</ul>
 					<br>
@@ -101,8 +125,10 @@
 					</ul>
 				</div>
 			</div>
-			<div class="slide" id = "slide3">
+			<div class="slide" id = "slide4">
 			<div class = "caption" id = "captionExp">
+					<br>
+					<br>
 					<span class="border">Misc.</span>
 					<br>
 					<br>
@@ -129,7 +155,7 @@
 		</div>
 	</div>
 	<div class="section" id="section2">
-		<div class = "bgimg-1">
+		<div class = "bgimg-2">
 			<div class="intro">
 				<div class = "caption">
 					<span class="border">Contact Me</span>
