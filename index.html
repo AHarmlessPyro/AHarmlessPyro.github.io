@@ -25,11 +25,12 @@
 	<script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fullpage.min.js"></script>
 	<script type="text/javascript" src="js/examples.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-			  sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'grey', '#ccddff'],
-			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
+			  sectionsColor: ['#1bbc9b', '#4BBFC3', '#ccddff', '#7BAABE', 'grey'],
+			  anchors: ['firstPage', 'secondPage', 'MiniProjects','Contact', '4thPage'],
 			  menu: '#menu',
 			  fadingeffects: true,
 			  fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
@@ -45,7 +46,8 @@
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Some info</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Education</a></li>
 	<li data-menuanchor="experience"><a href="#secondPage/1">Experience</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">More info?</a></li>
+	<li data-menuanchor="MiniProjects"><a href="#MiniProjects">Mini Projects in js</a></li>
+	<li data-menuanchor="3rdPage"><a href="#Contact">More info?</a></li>
 	<li data-menuanchor="4thPage"><a href="#4thPage">About</a></li>
 </ul>
 
@@ -151,6 +153,48 @@
 					<li>Designing and editing experience</li>
 					</ul>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section4">	
+		<div>
+			<div class = "caption" id = "captionExp">
+				<span class = "border">Dice Stats</span>
+				<br>
+				<br>
+			</div>
+			<div id = "InputEntryDiv" style="display: flex;flex-wrap: wrap; left : 20%;padding-left: 4%;min-width: 15%;">
+				<div>
+					<label for="runCount"> Enter Iterations</label>
+					<br>
+					<input type="number" id = "runCount" class = "inputElement"  placeholder = "Number of Iterations" onchange = "dieValueEntry()">
+					<br>
+					<label for="diceCount"> Enter Number of dice in total</label>
+					<br>
+					<input type="number" id = "diceCount" class = "inputElement" onchange = "dieValueEntry()" placeholder = "Number of Dice">
+					<br>
+					<label for="diceSize"> Enter dice size</label>
+					<br>
+					<input type="number" id = "diceSize" class = "inputElement" onchange = "dieValueEntry()" placeholder = "Size of Dice">
+					<br>			
+					<label for="diceDrop"> Enter Number of dice to drop</label>
+					<br>
+					<input type="number" id = "diceDrop" class = "inputElement" onchange = "dieValueEntry()" placeholder = "Dice to Drop">
+					<br>					
+					<label for="rerollOn"> Enter values to reroll on</label>
+					<br>
+					<input oninput="sanitize()" id = "rerollOn" class = "inputElement" onchange = "dieValueEntry()" placeholder = "Rerolls, enter as a,b,c">
+					<br>
+					<label for="rerollCount"> Enter maximum rerolls</label>
+					<br>
+					<input type="number" id = "rerollCount" class = "inputElement" onchange = "dieValueEntry()" placeholder = "Number of dice to reroll">
+					<br>
+				</div>
+				<div>
+					<canvas style="margin-left:50px;border:1px solid #000000;" id = graph></canvas>
+				</div>
+				<script type = "javascript">
+				</script>	
 			</div>
 		</div>
 	</div>

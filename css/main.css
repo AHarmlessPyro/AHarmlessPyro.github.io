@@ -104,7 +104,7 @@ ul.posts li {
 	position: relative;
 	left: 5%;
 	top: -30%;
-    padding-top: 100px;
+    padding-top: 9.25%;
 	color: #aaa;
 	text-align:left;
 }
@@ -133,10 +133,25 @@ img{
 	border:none;
 	overflow:auto;
 }
-::placeholder { /* Most modern browsers support this now. */
-   color:white;
-}
+
 textarea{
-	height: 80px;
-	
+	height: 7.407%;	
+}
+
+#inputEntryDiv{
+	width: 46.3%;
+	height:46.3%;
+	flex-flow:column-reverse wrap-reverse;
+	justify-content: space-between;
+}
+canvas{
+	justify-content: flex-end;
+}
+#graph{
+	justify-content: space-around;
+}
+
+::placeholder {
+	color: #888;
+	opacity: 1;
 }
