@@ -6,10 +6,10 @@
 	<title>Hey! Nice to meet you. I'm Ninad.</title>
 	<meta name="author" content="Matthew Howell" />
 	<meta name="description" content="fullPage continuous scrolling demo." />
-	<meta name="keywords"  content="fullpage,jquery,demo,scroll,loop,continuous" />
+	<meta name="keywords" content="fullpage,jquery,demo,scroll,loop,continuous" />
 	<meta name="Resource-type" content="Document" />
 
-	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullpage.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/examples.css" />
 
@@ -23,188 +23,359 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
 	<script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
-	<script type="text/javascript" src="js/jquery.fullpage.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullpage.extensions.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.fullpage.min.js"></script> -->
 	<script type="text/javascript" src="js/examples.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(document).ready(function () {
 			$('#fullpage').fullpage({
-			  sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'grey', '#ccddff'],
-			  anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
-			  menu: '#menu',
-			  fadingeffects: true,
-			  fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
-			  continuousVertical: false,
-			  scrollHorizontally: true
+				sectionsColor: ['#ffffff', '#DEDEDE', '#BDBEBD', '#9E9E9E', 'grey', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', 'webProj', '3rdPage', '4thPage', 'lastPage'],
+				menu: '#menu',
+				fadingeffects: true,
+				fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
+				continuousVertical: false,
+				scrollHorizontally: true
 			});
+
+			let canvasElement = document.getElementById("canvasBG");
+
+			canvasElement.setAttribute("width", window.innerWidth);
+			canvasElement.setAttribute("height", window.innerHeight);
+
+			let items = document.getElementsByClassName("section")
+			Array.from(items).forEach(element => {
+				applyImage(element);
+				canvasElement.getContext('2d').clearRect(0, 0, canvasElement.width, canvasElement.height);
+			});
+
+			document.getElementById("canvasContainer").remove();
 		});
+
+		// window.addEventListener("scroll", () => {
+		// 	deugger; console.log("Scroll event detected")
+		// });
+
+		function applyImage(src) {
+			if (src) {
+				const canvas = document.getElementById('canvasBG');
+				const ctx = canvas.getContext('2d');
+
+				point = 1 + parseInt(Math.random() * 100);
+
+				for (i = 0; i < point; i++) {
+					ctx.fillStyle = `rgb(
+					${Math.floor(1 + parseInt(Math.random() * window.innerWidth))},
+					${Math.floor(1 + parseInt(Math.random() * window.innerHeight))},
+					0)`;
+					ctx.beginPath();
+					arcX = 1 + parseInt(Math.random() * 1920);
+					arcY = 1 + parseInt(Math.random() * 1080);
+					arcRad = 1 + parseInt(Math.random() * 70);
+					ctx.arc(arcX, arcY, arcRad, 0, 2 * Math.PI)
+					ctx.filter = 'blur(10px)';
+					ctx.fill();
+					chances = Math.random();
+					chancesTrue = 0.2
+					if (chances >= chancesTrue) {
+						iterations = 1 + parseInt(Math.random() * 5);
+						prevMax = arcRad;
+						for (j = 0; j < iterations; j++) {
+							ctx.fillStyle = `rgb(
+							${Math.floor(1 + parseInt(Math.random() * 255))},
+							${Math.floor(1 + parseInt(Math.random() * 255))},
+							0)`;
+							ctx.beginPath();
+							radToUse = prevMax / 3 + parseInt(Math.random() * prevMax * 2 / 3);
+							ctx.arc(arcX, arcY, radToUse, 0, 2 * Math.PI);
+							ctx.filter = 'blur(10px)';
+							ctx.fill();
+							prevMax = radToUse;
+						}
+					}
+				}
+				let image = canvas.toDataURL("image/png");
+				src.style.backgroundImage = `url("${image}")`;
+			}
+		}		
 	</script>
 
 </head>
-<body>
-<ul id="menu">
-	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Some info</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Education</a></li>
-	<li data-menuanchor="experience"><a href="#secondPage/1">Experience</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">More info?</a></li>
-	<li data-menuanchor="4thPage"><a href="#4thPage">About</a></li>
-</ul>
 
-<div id="fullpage">
-	<div class="section" id="section0">
-		<div id = "bgimg-1">
-			<div class = "caption">
-				<span class="border">Hi There! I'm Ninad.</span>
-				<br>
-				<br>
-				<p>I'm currently a student at University of Minnesota, Twin Cities</p>
-			</div>
+<body>
+	<ul id="menu">
+		<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Some info</a></li>
+		<li data-menuanchor="secondPage"><a href="#secondPage">Education</a></li>
+		<li data-menuanchor="experience"><a href="#secondPage/1">Experience</a></li>
+		<li data-menuanchor="webProj"><a href="#webProj">Web Based Projects</a></li>
+		<li data-menuanchor="3rdPage"><a href="#3rdPage">More info?</a></li>
+		<li data-menuanchor="4thPage"><a href="#4thPage">About</a></li>
+	</ul>
+
+	<div id="fullpage">
+		<div style="width:0px; height: 0px;" id="canvasContainer">
+			<canvas id="canvasBG"></canvas>
 		</div>
-	</div>
-	<div class="section" id="section1">
-		<div class = "bgimg-1">
-			<div class="slide" id = "slide1">
-				<div class = "caption" id = "captionExp">
-					<span class="border" id = "eduTag">Education</span>
-					<br>
-					<br>
-					<p>University of Minnesota,Twin Cities
-					<ul>
-					<li> Bachelors of science in Computer Science</li>
-					<li> GPA: 3.66/4</li>
-					<li> Expected Graduation: May 2020</li>
-					</ul>
-					<br>
-					<br>
-					<p>Delhi Public School, Ranchi, India
-					<ul>
-					<li> Graduated in 2016</li>
-					<li> Percentage: 95.8%</li>
-					</ul>
-				</div>
-			</div>
-			<div class="slide" id = "slide2">
-				<div class = "caption" id = "captionExp">
-						<span class="border">Experience</span>
+		<div class="section" id="section0">
+			<div id="bgimg-1">
+				<div class="spacingContainer"></div>
+				<div class="contentContainer">
+					<div class="caption" style="text-align: center;padding-top: 50vh;">
+						<span class=" border">Hi There! I'm Ninad.</span>
 						<br>
 						<br>
-						<p>Interactive Visualisation Lab, University of Minnesota, Minneapolis</p>
-						<ul>
-						<li>May 2018 - Oct 2018</li>
-						<li>Continue development of pre-existing software for USFS for visualization of woodlands in the United States</li>
-						<li>Add a component to the software which implement an abstract visualization of the pre-existing data.</li>
-						<li>Create and test 3D models and terrains components that are suitable in a VR environment.</li>
-						</ul>
-						<br>
-						<br>
-						<p>Student Developer,Senior Software Project, University of Minnesota/Medtronics</p>
-						<ul>					
-						<li>Sept 2018 – Present</li>
-						<li>Work with Medtronics personnel to design software to increase collaborative design through node and relation based interactive graphs.</li>
-						<li>Work specifically on front-end technologies including Cytoscape and Websockets</li>
-						</ul>
-					</div>
-				</div>
-			<div class="slide" id = "slide3">
-			<div class = "caption" id = "captionExp">
-					<span class="border">Experience Contd.</span>
-					<br>
-					<br>
-					<p>Internship at Jharkhand Agency for Promotion of Information Technology, India</p>
-					<ul>
-					<li>Summer 2017</li>
-					<li>Development of prototype for mobile app meant to connect village level e-Service center inspectors to state level administration.</li>
-					<li>Set up application prototype using Apache Cordova and a backend .net server</li>
-					<li>Functioned as essential communication point between the senior developer and product team.</li>
-					</ul>
-					<br>
-					<br>
-					<p>Volunteer for Nimitta</p>
-					<ul>					
-					<li>Spring 2013 – Spring 2015</li>
-					<li>Responsible for handling the technological needs of the NGO</li>
-					</ul>
-				</div>
-			</div>
-			<div class="slide" id = "slide4">
-			<div class = "caption" id = "captionExp">
-					<br>
-					<br>
-					<span class="border">Misc.</span>
-					<br>
-					<br>
-					<p>Editor for ‘The Canvas’</p>
-					<ul>
-					<li>Acted as the editor for a magazine issued by the class for the year 2014-15 and 2015-16</li>
-					<li>Responsible for timely collection of articles and illustrations by interested students and ensuring quality of published material</li>
-					</ul>
-					<br>
-					<p>Representative, Seminar on Future of Education System in India</p>
-					<ul>
-					<li>Construct arguments in favor of increased focus on digitization of education.</li>
-					<li>Presented on behalf of his school in a seminar conducted by IIM Ranchi</li>
-					</ul>
-					<br>
-					<p>Skills and Abilities</p>
-					<ul>
-					<li>Programming Languages: C, C++, Java, Python, Ocaml, C#, MATLAB, R.</li>
-					<li>Intermediate level computer troubleshooting skills</li>
-					<li>Designing and editing experience</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="section" id="section2">
-		<div class = "bgimg-2">
-			<div class="intro">
-				<div class = "caption">
-					<span class="border">Contact Me</span>
-					<br>
-					<br>
-					<div id = "container">
-						<button id = "btnImg"><a href = "https://www.facebook.com/profile.php?id=100012900618154" target="_blank" ><img src = "images/facebook.svg" alt = "github" id = "img"></a></button>
-						<!--<input type="image" src="images/facebook.svg" />-->
-						<button id = "btnImg"><a href = "https://github.com/AHarmlessPyro" target="_blank" ><img src = "images/github-logo.svg" alt = "github" id = "img"></a></button>
-						<button id = "btnImg"><a href = "https://www.linkedin.com/in/ninad-sinha-1696b1154/" target="_blank"><img src = "images/linkedin.svg" alt = "github" ></a></button>
-						<!--<img src = ".." alt = "github">-->
-						<form action="https://formspree.io/sinha104@umn.edu" method="POST">
-							<input type="email" name="_replyto" placeholder = "Your e-Mail" id = "txtForm" required>
-							<br>
-							<textarea name="message" placeholder = "Your Message" id = "txtForm" ></textarea>
-							<br>
-							<input type="submit" value="Send" id = "btnSubmit">
-						</form>
+						<p>I'm currently a student at University of Minnesota, Twin Cities</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="section" id="section3">
-		<div class = "bgimg-1">
-			<div class="intro">
-				<div class = "caption">
-					<span class="border" id = "aboutid">About</span>
-					<ul id = "aboutlist">
-					<li>The theme itself was taken from <a href = "https://alvarotrigo.com/" target="_blank" id = "mentions"> alvaro trigo</a>. The current design was, however, done by me.</li>
-					<li>The general idea and methods for making a github page was taken from <a href = "http://jmcglone.com/guides/github-pages/" target="_blank" id = "mentions"> James McGlone</a></li>
-					<li>Mail form through <a href = " https://formspree.io/" target = "_blank" id = "mentions"> formspree.io</a></li>
-					<li> Picture Credits : 
-						<ul>
-						<li><t><a href = "https://www.pexels.com/photo/nature-sky-sunset-the-mountains-66997/" target="_blank" id = "mentions">&nbsp;&nbsp;&nbsp;Nastasia</a></li>
-						<li><t><a href = "https://www.pexels.com/photo/beach-dawn-dusk-ocean-189349/" target="_blank" id = "mentions">&nbsp;&nbsp;&nbsp;Sebastian Voortman</a></li>
-						<li><t><a href = "https://www.pexels.com/photo/seaport-during-daytime-132037/" target="_blank" id = "mentions">&nbsp;&nbsp;&nbsp;Pok Rie</a></li>
-						<li><t>All icons taken from <a href = "https://www.flaticon.com/" target="_blank" id = "mentions">flaticon.com</a></li>
-						<li><t>&nbsp;&nbsp;&nbsp;Github icon by <a href = "https://www.flaticon.com/free-icon/github-logo_25231" target="_blank" id = "mentions">Dave Gandy</a></li>
-						<li><t>&nbsp;&nbsp;&nbsp;LinkedIn icon by <a href = "https://www.flaticon.com/free-icon/linkedin_145807" target="_blank" id = "mentions">Freepik</a></li>
-						<li><t>&nbsp;&nbsp;&nbsp;Facebook icon by <a href = "https://www.flaticon.com/free-icon/facebook_145802" target="_blank" id = "mentions">Freepik</a></li>
+		<div class="section" id="section1">
+			<div class="bgimg-1">
+				<div class="slide" id="slide1">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionEdu">
+							<span class="border" id="eduTag">Education</span>
+							<br>
+							<br>
+							<p>University of Minnesota,Twin Cities
+								<ul>
+									<li> Bachelors of science in Computer Science</li>
+									<li> GPA: 3.66/4</li>
+									<li> Expected Graduation: May 2020</li>
+								</ul>
+								<br>
+								<br>
+								<p>Delhi Public School, Ranchi, India
+									<ul>
+										<li> Graduated in 2016</li>
+										<li> Percentage: 95.8%</li>
+									</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slide" id="slide2">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionExp">
+							<span class="border">Experience</span>
+							<br>
+							<br>
+							<p>Software Development Intern, Wyde Corporation, Minneapolis</p>
+							<ul>
+								<li>May 2019 - August 2019</li>
+								<li>Port functionality of existing Desktop based rich app to web app made on Node.js
+									through react components</li>
+								<li>Test and provide feedback for under-development tools for rapid prototyping of web
+									based forms.</li>
+								<li>Create screens to facilitate CRUD operations on Legal Entities and their relevant
+									information
+								</li>
+							</ul>
+							<br>
+							<br>
+							<p>Interactive Visualisation Lab, University of Minnesota, Minneapolis</p>
+							<ul>
+								<li>May 2018 - May 2019</li>
+								<li>Develop software for US Forest Service for visualization of woodlands in the United
+									States</li>
+								<li>Introduce basic data visualization aspect in Virtual Reality. This involved
+									analyzing the data to select views, data points, and representation to suitably
+									display numerical data in a 3D non-graph environment.</li>
+								<li>Create and test 3D models and terrains components that are suitable in a VR
+									environment.
+								</li>
+							</ul>
+							<br>
+							<br>
+							<p>Student Developer,Senior Software Project, University of Minnesota/Medtronics</p>
+							<ul>
+								<li>Sept 2018 – May 2019</li>
+								<li>Work with Medtronic personnel to design software to improve collaborative design
+									processes through graph-based visualization.</li>
+								<li>Work specifically on front-end technologies including Cytoscope to allow dynamic
+									graph creation to easily visualize workflow and design while simplifying design
+									processes.</li>
+								<li>Utilize connection technologies likeWeb-Sockets to enable simultaneous multi-user
+									interaction while maintaining data integrity</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slide" id="slide3">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionExpC1">
+							<span class="border">Experience Contd.</span>
+							<br>
+							<br>
+							<p>Internship at Jharkhand Agency for Promotion of Information Technology, India</p>
+							<ul>
+								<li>Summer 2017</li>
+								<li>Development of prototype for mobile app meant to connect village level e-Service
+									center
+									inspectors to state level administration.</li>
+								<li>Set up application prototype using Apache Cordova and a backend .net server</li>
+								<li>Functioned as essential communication point between the senior developer and product
+									team.</li>
+							</ul>
+							<br>
+							<br>
+							<p>Volunteer for Nimitta</p>
+							<ul>
+								<li>Spring 2013 – Spring 2015</li>
+								<li>Responsible for handling the technological needs of the NGO</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slide" id="slide4">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionExpC2">
+							<span class="border">Misc.</span>
+							<br>
+							<br>
+							<p>Editor for ‘The Canvas’</p>
+							<ul>
+								<li>Acted as the editor for a magazine issued by the class for the year 2014-15 and
+									2015-16
+								</li>
+								<li>Responsible for timely collection of articles and illustrations by interested
+									students
+									and ensuring quality of published material</li>
+							</ul>
+							<br>
+							<p>Representative, Seminar on Future of Education System in India</p>
+							<ul>
+								<li>Construct arguments in favor of increased focus on digitization of education.</li>
+								<li>Presented on behalf of his school in a seminar conducted by IIM Ranchi</li>
+							</ul>
+							<br>
+							<p>Skills and Abilities</p>
+							<ul>
+								<li>Programming Languages: C, C++, Java, Python, Ocaml, C#, MATLAB, R.</li>
+								<li>Intermediate level computer troubleshooting skills</li>
+								<li>Designing and editing experience</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="section4">
+			<div class="bgimg-1">
+				<div class="slide" id="slide1">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionP1">
+							<span class="border">TwitterMap!</span>
+							<br>
+							<br>
+							<iframe src="https://aharmlesspyro.github.io/CSCI-4131/Mashup/" class="embedElement">
+							</iframe>
+						</div>
+					</div>
+				</div>
+				<div class="slide" id="slide2">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionP2">
+							<span class="border">Chatꜛ!</span>
+							<br>
+							<br>
+							<iframe src="https://vast-hamlet-42923.herokuapp.com/" class="embedElement">
+							</iframe>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="section" id="section2">
+			<div class="bgimg-2">
+				<div class="intro">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" style="text-align: center; padding-top: 20%;">
+							<span class="border">Contact Me</span>
+							<br>
+							<br>
+							<div id="container">
+								<button id="btnImg"><a href="https://www.facebook.com/profile.php?id=100012900618154"
+										target="_blank"><img src="images/facebook.svg" alt="github"
+											id="img"></a></button>
+								<!--<input type="image" src="images/facebook.svg" />-->
+								<button id="btnImg"><a href="https://github.com/AHarmlessPyro" target="_blank"><img
+											src="images/github-logo.svg" alt="github" id="img"></a></button>
+								<button id="btnImg"><a href="https://www.linkedin.com/in/ninad-sinha-1696b1154/"
+										target="_blank"><img src="images/linkedin.svg" alt="github"></a></button>
+								<!--<img src = ".." alt = "github">-->
+								<form action="https://formspree.io/sinha104@umn.edu" method="POST">
+									<input type="email" name="_replyto" placeholder="Your e-Mail" id="txtForm" required>
+									<br>
+									<textarea name="message" placeholder="Your Message" id="txtForm"></textarea>
+									<br>
+									<input type="submit" value="Send" id="btnSubmit">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="section3">
+			<div class="bgimg-1">
+				<div class="spacingContainer"></div>
+				<div class="intro">
+					<div class="caption">
+						<span class="border" id="aboutid">About</span>
+						<ul id="aboutlist">
+							<li>The theme itself was taken from <a href="https://alvarotrigo.com/" target="_blank"
+									id="mentions"> alvaro trigo</a>. The current design was, however, done by me.</li>
+							<li>The general idea and methods for making a github page was taken from <a
+									href="http://jmcglone.com/guides/github-pages/" target="_blank" id="mentions"> James
+									McGlone</a></li>
+							<li>Mail form through <a href=" https://formspree.io/" target="_blank" id="mentions">
+									formspree.io</a></li>
+							<li> Picture Credits :
+								<ul>
+									<li>
+										<t>
+											<t class=" mentions">&nbsp;&nbsp;&nbsp;Backgrounds are generated on the fly
+												in HTML/JS. Refresh the page to see
+												new
+												images</t>
+										</t>
+									</li>
+									<li>
+										<t>All icons taken from <a href="https://www.flaticon.com/" target="_blank"
+												id="mentions">flaticon.com</a>
+									</li>
+									<li>
+										<t>&nbsp;&nbsp;&nbsp;Github icon by <a
+												href="https://www.flaticon.com/free-icon/github-logo_25231"
+												target="_blank" class="mentions">Dave Gandy</a>
+									</li>
+									<li>
+										<t>&nbsp;&nbsp;&nbsp;LinkedIn icon by <a
+												href="https://www.flaticon.com/free-icon/linkedin_145807"
+												target="_blank" class="mentions">Freepik</a>
+									</li>
+									<li>
+										<t>&nbsp;&nbsp;&nbsp;Facebook icon by <a
+												href="https://www.flaticon.com/free-icon/facebook_145802"
+												target="_blank" class="mentions">Freepik</a>
+									</li>
+								</ul>
+							</li>
 						</ul>
-					</li>
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 </body>
+
 </html>

@@ -2,141 +2,227 @@
 * Taken from a guide for gitub pages by James McGlone
 * http://jmcglone.com/guides/github-pages/
 */
+
 body, html {
-  font: 400 15px/1.8 "Lato", sans-serif;
-  color: #777;
-}
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-}
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
-}
-a {
-    text-decoration: none;
-    color: #999;
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-p {
-	padding-top: 30px;
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #fff;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+	font: 400 15px/1.8 "Lato", sans-serif;
+	color: #777;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
+nav ul, footer ul {
+	font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+	padding: 0px;
+	list-style: none;
+	font-weight: bold;
+}
+
+nav ul li, footer ul li {
+	display: inline;
+	margin-right: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 3em;
+	font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+p {
+	padding-top: 30px;
+	font-size: 1.5em;
+	line-height: 1.4em;
+	color: #808080;
+}
+
+footer {
+	border-top: 1px solid #d5d5d5;
+	font-size: .8em;
+}
+
+ul.posts {
+	margin: 20px auto 40px;
+	font-size: 1.5em;
 }
 
 ul.posts li {
-    list-style: none;
+	list-style: none;
 }
-.caption{
-	left: 0;
+
+.caption {
+	/* left: 0;
 	top: 50%;
-	width: 100%;
-	color: #000;
+	width: 100%; */
+	height: 100%;
 }
+
 .caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 1%;
-  font-size: 25px;
-  letter-spacing: 10px;
-  opacity: 0.5;
+	background-color: #111;
+	color: #fff;
+	padding: 1%;
+	font-size: 25px;
+	letter-spacing: 10px;
+	opacity: 0.5;
 }
-#section0{
-	background-image: url(../images/bg1.jpg);
-	background-size:cover
-}
-#section0 h1{
-	top: 50%;
-	transform: translateY(-50%);
-	position: relative;
-}
-#section2{
-	background-image: url(../images/bg4.jpg);
-	padding: 6% 0 0 0;
-	background-size:cover
-}
-#section1{
-	background-image: url(../images/bg3.jpg);
-	padding: 6% 0 0 0;
-	opacity: 0.95;
-	background-size:cover
-}
-#section3 h1{
-	color: #000;
-}
-#aboutid{
+
+#aboutid {
 	position: absolute;
 	left: 10%;
 	top: 10%;
 	color: #aaa;
 }
 
-#aboutlist{
+#aboutlist {
 	position: absolute;
 	left: 10%;
 	top: 21%;
 	color: #aaa;
-	text-align:left;
+	text-align: left;
 }
-#mentions{
-	color:#1c1d16;
+
+.mentions {
+	color: #1c1d16;
 }
-#captionExp{
+
+#bgimg-1 {
+	height: 100%;
+}
+
+.embedElement {
+	width: 100%;
+	height: 90%;
+}
+
+.spacingContainer {
+	height: 8.5%;
+}
+
+@media (orientation: landscape) {
+	.contentContainer {
+		color: #aaa;
+		text-align: left;
+		position: relative;
+		height: calc(90%);
+		margin: auto 65px;
+		/* margin: auto 65px 75px; */
+	}
+	.section {
+		padding: 0% 0 0% 0;
+	}
+	#section0 {
+		/* background-image: url(../images/bg1.jpg); */
+		background-size: cover
+	}
+	#section0 h1 {
+		top: 50%;
+		transform: translateY(-50%);
+		position: relative;
+	}
+	#section2 {
+		background-size: cover
+	}
+	#section1 {
+		background-size: cover
+	}
+	#section4 {
+		opacity: 0.95;
+		background-size: cover
+	}
+	#section3 h1 {
+		color: #000;
+	}
+}
+
+@media (orientation: portrait) {
+	.fp-tableCell {
+		display: table-cell;
+	}
+	.contentContainer {
+		color: #aaa;
+		text-align: left;
+		position: relative;
+		height: calc(100% - 95px);
+		margin: auto 65px 75px;
+	}
+	#section0 {
+		/* background-image: url(../images/bg1.jpg); */
+		background-size: cover
+	}
+	#section0 h1 {
+		top: 50%;
+		transform: translateY(-50%);
+		position: relative;
+	}
+	#section2 {
+		/* background-image: url(../images/bg4.jpg); */
+		padding: 6% 0 0 0;
+		background-size: cover
+	}
+	#section1 {
+		/* background-image: url(../images/bg3.jpg); */
+		padding: 6% 0 0 0;
+		opacity: 0.95;
+		background-size: cover
+	}
+	#section4 {
+		/* background-image: url(../images/bg3.jpg); */
+		padding: 6% 0 0 0;
+		opacity: 0.95;
+		background-size: cover
+	}
+	#section3 h1 {
+		color: #000;
+	}
+}
+
+.captionExp {
 	position: relative;
 	left: 5%;
 	top: -30%;
-    padding-top: 100px;
 	color: #aaa;
-	text-align:left;
+	text-align: left;
 }
-#btnImg{
+
+#btnImg {
 	background-color: Transparent;
 	border: none;
-	height:32px;
-	width:32px;
+	height: 32px;
+	width: 32px;
 }
-#btnSubmit{
+
+#btnSubmit {
 	background-color: transparent;
 	color: white;
 	border: none;
-	height:32px;
-	width:32px;
+	height: 32px;
+	width: 32px;
 }
-img{
-	height:32px;
-	width:32px;	
+
+img {
+	height: 32px;
+	width: 32px;
 }
-#txtForm{
-	background-color:transparent;
-	color:white;
+
+#txtForm {
+	background-color: transparent;
+	color: white;
 	width: 40%;
 	resize: none;
-	border:none;
-	overflow:auto;
+	border: none;
+	overflow: auto;
 }
-::placeholder { /* Most modern browsers support this now. */
-   color:white;
+
+::placeholder {
+	/* Most modern browsers support this now. */
+	color: white;
 }
-textarea{
+
+textarea {
 	height: 80px;
-	
 }
