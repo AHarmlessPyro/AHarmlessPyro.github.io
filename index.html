@@ -52,10 +52,6 @@
 			document.getElementById("canvasContainer").remove();
 		});
 
-		// window.addEventListener("scroll", () => {
-		// 	deugger; console.log("Scroll event detected")
-		// });
-
 		function applyImage(src) {
 			if (src) {
 				const canvas = document.getElementById('canvasBG');
@@ -139,18 +135,18 @@
 							<br>
 							<br>
 							<p>University of Minnesota,Twin Cities
-								<ul>
-									<li> Bachelors of science in Computer Science</li>
-									<li> GPA: 3.66/4</li>
-									<li> Expected Graduation: May 2020</li>
-								</ul>
-								<br>
-								<br>
-								<p>Delhi Public School, Ranchi, India
-									<ul>
-										<li> Graduated in 2016</li>
-										<li> Percentage: 95.8%</li>
-									</ul>
+							<ul>
+								<li> Bachelors of science in Computer Science</li>
+								<li> GPA: 3.66/4</li>
+								<li> Expected Graduation: May 2020</li>
+							</ul>
+							<br>
+							<br>
+							<p>Delhi Public School, Ranchi, India
+							<ul>
+								<li> Graduated in 2016</li>
+								<li> Percentage: 95.8%</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -289,6 +285,30 @@
 						</div>
 					</div>
 				</div>
+				<div class="slide" id="slide3">
+					<div class="spacingContainer"></div>
+					<div class="contentContainer">
+						<div class="caption" id="captionP3">
+							<span class="border">Realtime Sobel Filtering!</span>
+							<br>
+							<br>
+							<div class="videoContainers">
+								<div class="camera">
+									<video id="video">Video stream not available.</video>
+								</div>
+								<div class="cnv">
+									<canvas id="canvas" style="display:none">
+									</canvas>
+								</div>
+								<div class="cnvOut">
+									<canvas id="canvasOut" style="background-color: white;">
+									</canvas>
+								</div>
+							</div>
+							</iframe>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -375,7 +395,7 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="./js/capture.js"></script>
 </body>
 
 </html>
