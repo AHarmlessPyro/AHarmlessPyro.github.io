@@ -18,14 +18,25 @@
     var canvas = null;
     var canvas2 = null;
     var hasPrinted = false;
+    var select = null;
+    var currentStream;
+
+    function stopMediaTracks(stream) {
+        stream.getTracks().forEach(track => {
+            track.stop();
+        })
+    }
+
     function startup() {
         video = document.getElementById('video');
         canvas = document.getElementById('canvas');
         canvas2 = document.getElementById('canvasOut');
+        select = document.getElementById('select');
         // startbutton = document.getElementById('startbutton');
         // debugger;
         navigator.mediaDevices.getUserMedia({ video: true, audio: false })
             .then(function (stream) {
+                currentStream = stream;
                 video.srcObject = stream;
                 video.play();
             })
@@ -35,14 +46,44 @@
 
         navigator.mediaDevices.enumerateDevices()
             .then(function (devices) {
-                devices.forEach(function (device) {
-                    console.log(device.kind + ": " + device.label +
-                        " id = " + device.deviceId);
+                console.log(devices);
+                let count = 1;
+                devices.forEach(mediaDevice => {
+                    if (mediaDevice.kind === 'videoinput') {
+                        const option = document.createElement('option');
+                        option.value = mediaDevice.deviceId;
+                        const label = mediaDevice.label || `Camera ${count++}`;
+                        const textNode = document.createTextNode(label);
+                        option.appendChild(textNode);
+                        select.appendChild(option);
+                    }
                 });
             })
             .catch(function (err) {
                 console.log(err.name + ": " + err.message);
             });
+
+        select.addEventListener("change", (e) => {
+            navigator.mediaDevices
+                .getUserMedia({
+                    audio: false,
+                    video: {
+                        deviceId: {
+                            exact: select.value
+                        }
+                    }
+                })
+                .then(stream => {
+                    currentStream = stream;
+                    video.srcObject = stream;
+                    video.play();
+                    return navigator.mediaDevices.enumerateDevices();
+                })
+                .then(gotDevices)
+                .catch(error => {
+                    console.error(error);
+                });
+        })
 
 
         video.addEventListener('canplay', function (ev) {
