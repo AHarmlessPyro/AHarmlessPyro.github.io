@@ -137,6 +137,11 @@ ul.posts li {
 	#section3 h1 {
 		color: #000;
 	}
+	.videoContainers {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "camera cnvOut";
+	}
 }
 
 @media (orientation: portrait) {
@@ -179,6 +184,34 @@ ul.posts li {
 	#section3 h1 {
 		color: #000;
 	}
+	.videoContainers {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: "camera" "cnvOut";
+		row-gap: 50px;
+	}
+}
+
+.videoContainers {
+	display: grid;
+}
+
+.camera {
+	grid-area: camera;
+	display: grid;
+	justify-content: center;
+}
+
+.cnv {
+	justify-content: center;
+	display: grid;
+	grid-area: cnv;
+}
+
+.cnvOut {
+	justify-content: center;
+	display: grid;
+	grid-area: cnvOut;
 }
 
 .captionExp {
